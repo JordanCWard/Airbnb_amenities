@@ -5,6 +5,8 @@ Founded in 2008, Airbnb is a San-Francisco based company specializing in short- 
 
 The objective for this case study was to discover inefficiencies in the market for real-estate investors within the Denver vicinity.
 
+[Tableau Dashboard
+](https://public.tableau.com/views/AirbnbAmenitiesinDenver/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 # Neighborhoods
 Exploring the average cost of Airbnb listings in different Denver neighborhoods
