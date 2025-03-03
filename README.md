@@ -1,90 +1,89 @@
-# Denver Airbnb Amenity Analysis
+# **Denver Airbnb Amenity Analysis**
 
-### Overview
-Founded in 2008, Airbnb is a San-Francisco based company specializing in short- and long-term homestays. Guests possess diverse requirements, ranging from pet-friendly accommodations to the necessity for cribs.
+## **Overview**  
+- Founded in 2008, Airbnb is a San Francisco-based company specializing in short- and long-term homestays.  
+- Guests have diverse accommodation needs, from pet-friendly options to child-friendly amenities like cribs.  
+- This case study aims to identify market inefficiencies within the Denver Airbnb market, providing insights for real estate investors.  
 
-The objective for this case study was to discover inefficiencies in the market for real-estate investors within the Denver vicinity.
-
-[Tableau Dashboard
+- [Tableau Dashboard
 ](https://public.tableau.com/views/AirbnbAmenitiesinDenver/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
-# Neighborhoods
-Exploring the average cost of Airbnb listings in different Denver neighborhoods
+---
 
-Denver boasts 78 unique neighborhoods with a total of 5,378 Airbnb listings.
+## **Neighborhood Analysis**  
 
-Five Points leads with the highest number of listings with 452, while Sun Valley has just one listing.
+- Denver consists of **78 distinct neighborhoods** with **5,378 Airbnb listings**.  
+- **Highest Listing Volume:**  
+  - Five Points leads with **452** active listings.  
+- **Lowest Listing Volume:**  
+  - Sun Valley has only **one** Airbnb listing.  
+- **Pricing Overview:**  
+  - **Average Nightly Rate:** $252.72  
+  - **Most Affordable Neighborhood:** Kennedy - **$78.33 per night**  
+  - **Most Expensive Neighborhood:** Cheesman Park - **$1,038.86 per night**  
 
-The average nightly price for an Airbnb rental in Denver is $252.72.
+---
 
-Kennedy stands out as the most budget-friendly neighborhood with an average price of $78.33 per night.
+## **Amenity Analysis**
 
-Conversely, Cheesman Park ranks as the most expensive, averaging $1,038.86 per night.
+- Denver Airbnb listings collectively offer **2,301 unique amenities**.  
+- After data refinement, **137 distinct amenities** were selected for analysis.  
 
+#### **Most Common Amenities:**  
+- 🏠 **Washing Machine** – Found in **7,748** listings  
+- 🚗 **Free Parking** – Available in **6,875** listings  
+- 📶 **Wi-Fi** – Provided in **5,405** listings  
 
-# Amenities
-Analyzing the most and least sought-after Airbnb amenities in Denver
+#### **Least Common Amenities:**  
+- These amenities appear in only **one** listing each:  
+  - Paid resort access  
+  - Toiletries  
+  - Complimentary continental breakfast  
+  - Game room  
+  - Garden  
 
-Denver featured a total of 2,301 unique amenities listed on Airbnb.
+---
 
+## **Best Deals on Amenities**  
 
-After refining data, the selection was reduced to 137 distinct amenities.
+- Some neighborhoods offer significant savings when booking listings with specific amenities:
 
+  - **🏡 Backyard (Cheesman Park):**  
+    - Listings with backyards cost **$788.60 less** than the average Cheesman Park rental.  
 
-These are the amenities you’ll find most often in a listing:
-Washing machine: 7,748 listings
-Free parking: 6,875 listings
-Wi-fi: 5,405 listings
+  - **🔥 BBQ Grill (Sunnyside):**  
+    - Listings with BBQ grills are **$360.93 cheaper** than the neighborhood average.  
 
+  - **🐶 Pet-Friendly (Whittier):**  
+    - Pet-friendly listings provide **$222.52 in savings** compared to the neighborhood average.  
 
-In contract, several amenities had only one listing each:
-Paid resort access
-Toiletries
-Complimentary continental breakfast
-Game room
-Garden
+  - **❄️ Window Air Conditioning (Lincoln Park):**  
+    - Listings with window A/C units cost **$361.90 less** than the average Lincoln Park rental.  
 
+> *Note:* Amenity-based pricing is influenced by additional factors such as square footage and the number of bedrooms.
 
-# Deals
-Identifying the Denver neighborhoods that provide the best deals on specific amenities
+---
 
-Seeking a backyard for relaxation? Cheesman Park listings with backyards offer savings of $788.60 compared to the average Cheesman Park listing.
+## **Data Cleaning Process**  
+### **Steps Taken for Data Preparation**  
+- The dataset was processed using **BigQuery** and **SQL** as primary tools.  
 
+1. **Isolated Key Columns** – Extracted the amenities column and listing IDs.  
+2. **Data Transformation** – Amenities, initially stored as a single field, were split into multiple columns.  
+3. **Standardization** – Similar amenities were consolidated using the `REPLACE` function, reducing unique amenities from **2,801 to 137**.  
+4. **Selection Criteria** – **31 key amenities** were chosen for further analysis based on popularity and added value.  
+5. **CSV Export** – The cleaned data was exported to a CSV file.  
 
-Planning a BBQ event? Sunnyside listings with a BBQ grills come at a discount of $360.93 compared to the average Sunnyside listing.
+### **Example Data Entry (Row #14 - Cherry Creek)**  
+| Neighborhood  | Listings | Avg Price/Night | Bathtub Count | Bathtub Avg Price | Price Difference |  
+|--------------|----------|----------------|--------------|----------------|-----------------|  
+| Cherry Creek | 65       | $276.65        | 39           | $185.38        | -$91.26         |  
 
+> Listings where the price difference was **≥ $0** were removed from further analysis.  
 
-Traveling with your dog? Whittier listings allowing pets provide savings of $222.52 compared to the average Whittier listing.
+---
 
-
-In need of a window air conditioning unit? Lincoln Park listings offer savings of $361.90 compared to the average Lincoln Park listing.
-
-
-*Amenities are interconnected with other variables, and considerations like square footage or the number of bedrooms may also play a role.
-
-
-# Data Cleaning
-Data was initially downloaded and imported into BigQuery. SQL was employed as the primary tool for this case study.
-To clean the data, the amenities column was isolated along with the listing ID. All amenities were originally stored in a single cell and were subsequently split into new cells.
-Similar amenities were standardized using the ‘replace’ function, reducing the number of unique amenities from 2,801 to 137.
-31 amenities were selected for analysis based on popularity and the added value they offer.
-
-A CSV file was created with the data. Row #14 provides an example with the following columns:
-Neighborhood: Cherry Creek
-Number of listings: 65
-Average price per night: $276.65
-Bathtub count (number of listings in Cherry Creek with a bathtub): 39
-Bathtub average price (average price of listings in Cherry Creek with a bathtub): $185.38
-Bathtub difference (average price per night - bathtub average price): $-91.26
-If the difference was greater than or equal to 0, it was removed. See next slide for a snippet of the file.
-
-
-
-
-
-
-# Data
+# Source
 Data was utilized from [Inside Airbnb](https://insideairbnb.com/get-the-data/) for analysis.
-Data is sourced from the Denver, Colorado, United States section, specifically from the dataset dated June 30, 2023.
+Data is sourced from the Denver, Colorado, United States section, from the dataset dated June 30, 2023.
 The data covers the period from 4-1-23 to 6-30-23.
-
