@@ -63,11 +63,6 @@ In need of a window air conditioning unit? Lincoln Park listings offer savings o
 *Amenities are interconnected with other variables, and considerations like square footage or the number of bedrooms may also play a role.
 
 
-# Tableau
-Access the final results from the case study by clicking the link below. Utilize the filter in the top right to identify neighborhoods with the best deals for your selected amenity.
-Airbnb Amenities in Denver
-
-
 # Data Cleaning
 Data was initially downloaded and imported into BigQuery. SQL was employed as the primary tool for this case study.
 To clean the data, the amenities column was isolated along with the listing ID. All amenities were originally stored in a single cell and were subsequently split into new cells.
