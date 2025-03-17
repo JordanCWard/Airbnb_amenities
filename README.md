@@ -87,3 +87,5 @@
 Data was utilized from [Inside Airbnb](https://insideairbnb.com/get-the-data/) for analysis.
 Data is sourced from the Denver, Colorado, United States section, from the dataset dated June 30, 2023.
 The data covers the period from 4-1-23 to 6-30-23.
+
+
